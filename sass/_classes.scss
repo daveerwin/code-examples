@@ -1,0 +1,65 @@
+@import "../utility/vars";
+@import "../utility/mixins";
+
+// for these classes, a version will be created for all the colors in our palette
+@each $color, $hex in $base_colors {
+  .#{$color} {
+    color: $hex;
+  }
+
+  .background-#{$color} {
+    background-color: $hex;
+  }
+
+  .#{$color}-links a {
+    color: $hex;
+  }
+
+  .#{$color}-icon:before {
+    color: $hex;
+  }
+
+  .#{$color}-icon:after {
+    color: $hex;
+  }
+
+  .#{$color}-border {
+    border-color: $hex;
+  }
+}
+
+@for $i from 0 through 10 {
+  .padding-#{$i * 5} {
+    padding: 5px * $i;
+  }
+
+  .padding-top-#{$i * 5} {
+    padding-top: 5px * $i;
+  }
+  .padding-bottom-#{$i * 5} {
+    padding-bottom: 5px * $i;
+  }
+  .padding-left-#{$i * 5} {
+    padding-left: 5px * $i;
+  }
+  .padding-right-#{$i * 5} {
+    padding-right: 5px * $i;
+  }
+
+  .margin-#{$i * 5} {
+    margin: 5px * $i;
+  }
+
+  .margin-bottom-#{$i * 5} {
+    margin-bottom: 5px * $i;
+  }
+  .margin-top-#{$i * 5} {
+    margin-top: 5px * $i;
+  }
+  .margin-left-#{$i * 5} {
+    margin-left: 5px * $i;
+  }
+  .margin-right-#{$i * 5} {
+    margin-right: 5px * $i;
+  }
+}

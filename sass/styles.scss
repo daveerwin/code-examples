@@ -1,0 +1,8 @@
+// Using sass-globbing gem any .scss files added to these folders will be imported.
+
+@import "utility/*";
+@import "base/*";
+@import "modules/*";
+@import "components/*";
+@import "layout/*";
+@import "pages/*";

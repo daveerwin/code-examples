@@ -1,0 +1,84 @@
+@import "compass/utilities/sprites";
+@import "sprites/*.png";
+
+$sprites-layout: 'smart';
+$map: sprite-map("sprites/*.png");
+
+%image {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+}
+%image-before {
+  @extend %image;
+  margin-right: 10px;
+}
+%image-after {
+  @extend %image;
+  margin-left: 10px;
+}
+
+@mixin sprite-element($name) {
+  @extend %image;
+  @include sprite-dimensions($map, $name);
+  @include sprites-sprite($name);
+}
+@mixin sprite-before($name) {
+  &:before {
+    @extend %image-before;
+    @include sprite-dimensions($map, $name);
+    @include sprites-sprite($name);
+  }
+}
+@mixin sprite-after($name) {
+  &:after {
+    @extend %image-after;
+    @include sprite-dimensions($map, $name);
+    @include sprites-sprite($name);
+  }
+}
+
+// Examples.//////////////////////////
+/*
+.blue-arrow-down-lg-before {
+  @include sprite-before(blue_arrow_down_lg);
+}
+.blue-arrow-down-lg-after {
+  @include sprite-after(blue_arrow_down_lg);
+}
+*/
+
+.download-icon-before {
+  @include sprite-before(download_icon);
+}
+
+.promo-upper-left {
+  @include sprite-element(promo_upper_left);
+}
+.promo-upper-right {
+  @include sprite-element(promo_upper_right);
+}
+.promo-lower-left {
+  @include sprite-element(promo_lower_left);
+}
+.promo-lower-right {
+  @include sprite-element(promo_lower_right);
+}
+
+.white-divider {
+  @include sprite-element(divider_white);
+}
+
+.colorbox-close {
+  @include sprite-element(colorbox_close);
+}
+.colorbox-prev {
+  @include sprite-element(colorbox_arrow_prev);
+}
+.colorbox-next {
+  @include sprite-element(colorbox_arrow_next);
+}
+
+.slideshow-icon {
+  @include sprite-element(slideshow_icon);
+}

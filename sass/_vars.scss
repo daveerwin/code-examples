@@ -1,0 +1,41 @@
+$main_font: Georgia, serif;
+$secondary_font : 'Roboto Condensed',Arial, Helvetica, sans-serif;
+$secondary_font_regular : 'Roboto',Arial, Helvetica, sans-serif;
+$icons: icons;
+$tertiary_font: brothers, georgia, serif;
+$tertiary_font_special: brothers_special;
+
+
+$screen_xs: 480px;
+$screen_sm: 768px;
+$screen_md: 992px;
+$screen_lg: 1280px;
+
+$mobile_padding: 10px;
+$tablet_padding: 20px;
+$desktop_padding: 40px;
+
+$radius: 6px;
+
+// Colors.
+$navy_blue: #002b54;
+$medium_blue: #336699;
+$bright_blue: #007eb3;
+$red: #b5121b;
+$dark_red: #9c0202;
+$tan: #edeae3;
+$khaki: #7e7862;
+$dark_gray: #3c3936;
+$gold: #cc9933;
+
+$base_colors: (
+  "navy_blue": $navy_blue,
+  "red": $red,
+  "tan": $tan,
+  "bright_blue": $bright_blue,
+  "dark_gray": $dark_gray,
+  "medium_blue": $medium_blue,
+  "gold": $gold,
+  "dark_red": $dark_red,
+  "khaki": $khaki,
+);

@@ -1,0 +1,14 @@
+// A couple examples of loading fonts w/ compass
+
+@import "compass/css3/font-face";
+
+// Fontello icons.
+@include font-face("icons", font-files("fontello/fontello.woff", "fontello/fontello.woff2"));
+
+// Brothers Bold.
+@include font-face("brothers", font-files("brothers/brothers.woff",
+  "brothers/brothers.woff2"), $weight: 700);
+
+// Brothers Special Characters.
+@include font-face("brothers_special", font-files("brothers/Brothers_C/BrothersOT-WordLogoscivilwa.woff",
+  "brothers/Brothers_C/BrothersOT-WordLogoscivilwa.woff2"));
