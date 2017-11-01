@@ -1,0 +1,118 @@
+@mixin font-size($sizeValue: 1.6, $line: normal){
+  font-size: ($sizeValue * 1) + px;
+  font-size: ($sizeValue / 10) + rem;
+  @if($line != normal) {
+    line-height: $line / $sizeValue;
+  } @else {
+    line-height: normal;
+  }
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin absolute-vertical-align {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin absolute-horz-align {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin dimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin translateY($value) {
+  -webkit-transform: translateY($value);
+  -ms-transform: translateY($value);
+  transform: translateY($value);
+}
+
+// Breakpoint mixins
+@mixin breakpoint-max($max) {
+  @media only screen and (max-width: $max - 1) { @content; }
+}
+@mixin breakpoint-min($min) {
+  @media only screen and (min-width: $min) { @content; }
+}
+@mixin breakpoint($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max - 1) { @content; }
+}
+
+@mixin triangle($dir, $sizex, $sizey, $color) {
+  display: inline-block;
+  content: "";
+  border-color: transparent;
+  border-style: solid;
+
+  @if ($dir == "top" or $dir == "up") {
+    border-bottom-color: $color;
+    border-width: 0 ($sizex / 2) $sizey ($sizex / 2);
+  }
+  @else if ($dir == "right" or $dir == "after") {
+    border-left-color: $color;
+    border-width: ($sizey / 2) 0 ($sizey / 2) $sizex;
+  }
+  @else if ($dir == "bottom" or $dir == "down") {
+    border-top-color: $color;
+    border-width: $sizey ($sizex / 2) 0 ($sizex / 2);
+  }
+  @else if ($dir == "left" or $dir == "before") {
+    border-right-color: $color;
+    border-width: ($sizey / 2) $sizex ($sizey / 2) 0;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin double_border($width1, $color1, $width2, $color2) {
+  box-shadow:
+    0 0 0 $width1 $color1,
+    0 0 0 $width1 + $width2 $color2,
+}
+
+@mixin triple_border($width1, $color1, $width2, $color2, $width3, $color3) {
+  box-shadow:
+    0 0 0 $width1 $color1,
+    0 0 0 $width1 + $width2 $color2,
+    0 0 0 $width1 + $width2 + $width3 $color3;
+}
+
+@mixin negative_radius($color, $size) {
+  background: $color; /* fallback */
+  background:
+    linear-gradient(135deg, transparent 10px, $color 0) top left,
+    linear-gradient(225deg, transparent 10px, $color 0) top right,
+    linear-gradient(315deg, transparent 10px, $color 0) bottom right,
+    linear-gradient(45deg,  transparent 10px, $color 0) bottom left;
+  background-size: 51% 51%;
+  background-repeat: no-repeat;
+
+  background-image:
+    radial-gradient(circle at 0 0, rgba(204,0,0,0) $size, $color $size + 1),
+    radial-gradient(circle at 100% 0, rgba(204,0,0,0) $size, $color $size + 1),
+    radial-gradient(circle at 100% 100%, rgba(204,0,0,0) $size, $color $size + 1),
+    radial-gradient(circle at 0 100%, rgba(204,0,0,0) $size, $color $size + 1);
+}
+
